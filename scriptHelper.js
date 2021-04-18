@@ -3,28 +3,28 @@ require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
-   /*
-                <h2>Mission Destination</h2>
+   document.querySelector("#missionTarget").innerHTML=
+                `<h2>Mission Destination</h2>
                 <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
+                    <li>Name: ${name}</li>
+                    <li>Diameter: ${diameter}</li>
                     <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
+                    <li>Distance from Earth: ${distance}</li>
+                    <li>Number of Moons: ${moons}</li>
                 </ol>
-                <img src="">
-   */
+                <img src="${imageUrl}">`;
+   
 }
 
 function validateInput(testInput) {
    if (!testImput) {
-       result = "Empty";
+       return "Empty";
    } else if (isNaN(testImput)) {
-       result = "Not a Number";
-   } else (!isNaN(testImput)) {
-       result = "Is a Number";
+    return "Not a Number";
+   } else if (!isNaN(testImput)) {
+    return "Is a Number";
    }
-   return result
+    return "";
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
@@ -55,9 +55,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 }
 
 async function myFetch() {
-    let planetsReturned;
-
-    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+    let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
         planetsReturned = response.json()
         });
 
@@ -65,7 +63,7 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
-    num= (Math.ceil(Math.random()*5));
+    let num = (Math.ceil(Math.random()*5));
     return planets[num];
 }
 
