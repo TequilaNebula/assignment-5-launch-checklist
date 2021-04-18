@@ -6,11 +6,11 @@ window.addEventListener("load", function() {
    
     let form = document.querySelector("testForm");
     form.addEventListener("submit", function(event) {
-       let pilot = document.querySelector("input[name=pilotName]");
-       let copilot = document.querySelector("input[name=copilotName]");
-       let fuelLevel = document.querySelector("input[name=fuelLevel]");
-       let cargoMass = document.querySelector("input[name=cargoMass]");
-       let list = document.querySelector("input [name=faultyItems]");
+       let pilot = document.querySelector("input[name=pilotName]").textContent;
+       let copilot = document.querySelector("input[name=copilotName]").textContent;
+       let fuelLevel = document.querySelector("input[name=fuelLevel]").textContent;
+       let cargoMass = document.querySelector("input[name=cargoMass]").textContent;
+       let list = document.querySelector("input[name=faultyItems]");
 
        if (pilot.value === "" || copilot.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
         alert("All fields are required!");

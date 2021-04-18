@@ -17,45 +17,45 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-   if (!testImput) {
+   if (!testInput) {
        return "Empty";
-   } else if (isNaN(testImput)) {
+   } else if (isNaN(testInput)) {
     return "Not a Number";
-   } else if (!isNaN(testImput)) {
+   } else if (!isNaN(testInput)) {
     return "Is a Number";
    }
     return "";
 }
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
-    let pilotStatus = document.querySelector("#pilotStatus");
-    pilotStatus.textContent = `${pilotName} Ready`;
+function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoLevel) {
+    let pilotStatus = document.getElementById("pilotStatus");
+    pilotStatus.textContent = `Pilot ${pilot} is ready for launch`;
 
-    let copilotStatus = document.querySelector("#copilotStatus");
-    copilotStatus.textContent = `${copilotName} Ready`;
+    let copilotStatus = document.getElementById("copilotStatus");
+    copilotStatus.textContent = `Co-pilot ${copilot} is ready for launch`;
    
-    let launchStatus = document.querySelector("#launchStatus");
-    if (validateInput(fuelLevel.textContent) < 10000) {
+    let launchStatus = document.getElementById("launchStatus");
+    if (!isNaN(fuelLevel) && fuelLevel < 10000) {
         faultyItems.visibilty = true;
         faultyItems.textContent = "There is not enough fuel for the journey."
         launchStatus.textContent = "Shuttle not ready for launch.";
-        launchStatus.class = red;
-    } if (validateInput(cargoMass.textContent) > 10000) {
+        launchStatus.style.color = "rgb(199, 37, 78)";
+    } if (!isNaN(cargoLevel) && cargoLevel > 10000) {
         faultyItems.visibility = true;
         faultyItems.textContent = "There is too much mass for the shuttle to take off.";
-        launchStatus.textContent = "Shuttle not ready for launch.";
-        launchStatus.class = red;
+        launchStatus.textContent = "Shuttle not ready for launch";
+        launchStatus.style.color = "rgb(199, 37, 78)";
     } else {
         faultyItems.visibility = false;
-        launchStatus.textContent = "Shuttle is ready for launch.";
-        launchStatus.class = green;
+        launchStatus.textContent = "Shuttle is Ready for Launch";
+        launchStatus.style.color = "rgb(65, 159, 106)";
     }
 
 }
 
 async function myFetch() {
-    let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+    let planetsReturned;
+    await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
         planetsReturned = response.json()
         });
 
