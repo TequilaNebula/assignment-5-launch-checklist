@@ -46,15 +46,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         document.getElementById('cargoLevel').innerHTML = 'There is too much mass for the shuttle to take off';
         document.getElementById('launchStatus').innerHTML = 'Shuttle Not Ready for Launch';
         document.getElementById('launchStatus').style.color = 'rgb(199, 37, 78)';
-
     } 
     
-    else {
+    if (fuelLevel > 10000 && cargoLevel < 10000){
         faultyItems.visibility = false;
         launchStatus.textContent = "Shuttle is Ready for Launch";
         launchStatus.style.color = "rgb(199, 37, 78)";
     }
-
+}
 
 
 async function myFetch() {
