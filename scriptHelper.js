@@ -33,16 +33,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
    
     if (fuelLevel > 10000) {
-        list=document.getElementById('faultyItems');
-        list.style.visibility = 'visible';
+        document.getElementById('faultyItems').style.visibility = 'visible';
         document.getElementById('fuelStatus').innerHTML = 'Fuel level high enough for launch';
         document.getElementById('launchStatus').innerHTML = 'Shuttle Not Ready for Launch';
         document.getElementById('launchStatus').style.color = 'rgb(65, 159, 106)';
     }
     
     if (cargoLevel > 10000) {
-        cargoLevel=document.getElementById('cargoLevel');
-        cargoLevel.style.visibilty = 'visible';
+        document.getElementById('cargoLevel').style.visibilty = 'visible';
         document.getElementById('cargoLevel').innerHTML = 'There is too much mass for the shuttle to take off';
         document.getElementById('launchStatus').innerHTML = 'Shuttle Not Ready for Launch';
         document.getElementById('launchStatus').style.color = 'rgb(65, 159, 106)';
