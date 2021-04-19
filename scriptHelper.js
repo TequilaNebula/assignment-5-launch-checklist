@@ -26,6 +26,7 @@ function validateInput(testInput) {
    }
     return "";
 }
+let alert = '';
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     if (validateInput(pilot) === 'Empty' || validateInput(copilot) === 'Empty'
