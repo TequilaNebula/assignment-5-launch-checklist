@@ -29,26 +29,26 @@ function validateInput(testInput) {
 
 function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoLevel) {
     let pilotStatus = document.getElementById("pilotStatus");
-    pilotStatus.textContent = `Pilot ${pilot} is ready for launch`;
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
 
     let copilotStatus = document.getElementById("copilotStatus");
-    copilotStatus.textContent = `Co-pilot ${copilot} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
    
     let launchStatus = document.getElementById("launchStatus");
     if (!isNaN(fuelLevel) && fuelLevel < 10000) {
         faultyItems.visibilty = true;
         faultyItems.textContent = "There is not enough fuel for the journey."
-        launchStatus.textContent = "Shuttle not ready for launch.";
+        launchStatus.textContent = "Shuttle Not Ready for Launch";
         launchStatus.style.color = "rgb(199, 37, 78)";
     } if (!isNaN(cargoLevel) && cargoLevel > 10000) {
         faultyItems.visibility = true;
         faultyItems.textContent = "There is too much mass for the shuttle to take off.";
-        launchStatus.textContent = "Shuttle not ready for launch";
+        launchStatus.textContent = "Shuttle Not Ready for Launch";
         launchStatus.style.color = "rgb(199, 37, 78)";
     } else {
         faultyItems.visibility = false;
         launchStatus.textContent = "Shuttle is Ready for Launch";
-        launchStatus.style.color = "rgb(65, 159, 106)";
+        launchStatus.style.color = "rgb(199, 37, 78)";
     }
 
 }
