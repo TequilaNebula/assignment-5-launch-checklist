@@ -51,7 +51,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         launchStatus.style.color = "rgb(199, 37, 78)";
     }
 
-}
+
 
 async function myFetch() {
     let planetsReturned;
