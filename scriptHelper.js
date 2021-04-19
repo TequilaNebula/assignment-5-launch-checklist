@@ -40,12 +40,16 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         document.getElementById('launchStatus').style.color = 'rgb(199, 37, 78)';
     }
     
-    } if (!isNaN(cargoLevel) && cargoLevel > 10000) {
-        faultyItems.visibility = true;
-        faultyItems.textContent = "There is too much mass for the shuttle to take off.";
-        launchStatus.textContent = "Shuttle Not Ready for Launch";
-        launchStatus.style.color = "rgb(199, 37, 78)";
-    } else {
+    if (cargoLevel > 10000) {
+        cargoLevel=document.getElementById('cargoLevel');
+        cargoLevel.style.visibilty = 'visible';
+        document.getElementById('cargoLevel').innerHTML = 'There is too much mass for the shuttle to take off';
+        document.getElementById('launchStatus').innerHTML = 'Shuttle Not Ready for Launch';
+        document.getElementById('launchStatus').style.color = 'rgb(199, 37, 78)';
+
+    } 
+    
+    else {
         faultyItems.visibility = false;
         launchStatus.textContent = "Shuttle is Ready for Launch";
         launchStatus.style.color = "rgb(199, 37, 78)";
