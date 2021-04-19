@@ -27,17 +27,19 @@ function validateInput(testInput) {
     return "";
 }
 
-function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoLevel) {
+function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
 
     document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
    
-    let launchStatus = document.getElementById("launchStatus");
-    if (!isNaN(fuelLevel) && fuelLevel < 10000) {
-        faultyItems.visibilty = true;
-        faultyItems.textContent = "There is not enough fuel for the journey."
-        launchStatus.textContent = "Shuttle Not Ready for Launch";
-        launchStatus.style.color = "rgb(199, 37, 78)";
+    if (fuelLevel < 10000) {
+        list=document.getElementById('faultyItems');
+        list.style.visibility = 'visible';
+        document.getElementById('fuelStatus').innerHTML = 'Fuel level too low for launch';
+        document.getElementById('launchStatus').innerHTML = 'Shuttle Not Ready for Launch';
+        document.getElementById('launchStatus').style.color = 'rgb(199, 37, 78)';
+    }
+    
     } if (!isNaN(cargoLevel) && cargoLevel > 10000) {
         faultyItems.visibility = true;
         faultyItems.textContent = "There is too much mass for the shuttle to take off.";
