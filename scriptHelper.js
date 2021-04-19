@@ -40,8 +40,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }
     
     if (cargoLevel > 10000) {
-        document.getElementById('cargoLevel').style.visibilty = 'visible';
-        document.getElementById('cargoLevel').innerHTML = 'There is too much mass for the shuttle to take off';
+        document.getElementById('cargoStatus').style.visibilty = 'visible';
+        document.getElementById('cargoStatus').innerHTML = 'There is too much mass for the shuttle to take off';
         document.getElementById('launchStatus').innerHTML = 'Shuttle Not Ready for Launch';
         document.getElementById('launchStatus').style.color = 'rgb(65, 159, 106)';
     } 
