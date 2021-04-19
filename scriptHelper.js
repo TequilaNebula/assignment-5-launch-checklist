@@ -28,11 +28,9 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoLevel) {
-    let pilotStatus = document.getElementById("pilotStatus");
-    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+    document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
 
-    let copilotStatus = document.getElementById("copilotStatus");
-    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
+    document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
    
     let launchStatus = document.getElementById("launchStatus");
     if (!isNaN(fuelLevel) && fuelLevel < 10000) {
