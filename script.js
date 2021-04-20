@@ -3,7 +3,8 @@
 let scriptHelper = require("./scriptHelper.js");
 
 window.addEventListener("load", function() {
-    let list = document.getElementById(faultyItems).innerHTML = "hidden";
+
+    document.getElementById('faultyItems').style.visibility = "hidden";
     
     let form = document.querySelector("testForm");
     form.addEventListener("submit", function(event) {
