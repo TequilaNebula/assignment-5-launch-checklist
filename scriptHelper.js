@@ -47,7 +47,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     } 
 
     if (fuelLevel >= 10000 && cargoLevel <= 10000) {
-        list.style.visibility = 'hidden';
+        list.style.visibility = 'visible';
         document.getElementById('fuelStatus').innerHTML = "Fuel level high enough for launch";
         document.getElementById('cargoStatus').innerHTML = "Cargo mass low enough for launch";
         document.getElementById('launchStatus').innerHTML = "Shuttle is Ready for Launch";
