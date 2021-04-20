@@ -3,7 +3,8 @@
 let scriptHelper = require("./scriptHelper.js");
 
 window.addEventListener("load", function() {
-   
+    let list = document.getElementById(faultyItems).innerHTML = "hidden";
+    
     let form = document.querySelector("testForm");
     form.addEventListener("submit", function(event) {
        let pilot = document.querySelector("input[name=pilotName]").textContent;
