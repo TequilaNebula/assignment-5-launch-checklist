@@ -80,7 +80,7 @@ async function myFetch() {
 function pickPlanet(planets) {
     let num = (Math.ceil(Math.random()*5));
     return planets[num];
-}
+} 
 
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
